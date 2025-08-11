@@ -3,16 +3,16 @@ import SwiftData
 
 struct IngredientsView: View {
     @Environment(\.modelContext) private var context
-    @Query(sort: \Ingredient.name) private var ingredients: [Ingredient]
+    @Query(sort: \Ingredient.name) private var ingredients: [Ingredient] //query to SwiftData for all available ingredients
     
-    @State private var newIngredient = ""
-    @State private var selectedCategory = "Protein"
+    @State private var newIngredient = "" //newIngredient as a var to store new ingredient typed by user to avoid storing empty value
+    @State private var selectedCategory = "Protein" //begin value as protein
     
     let categories = ["Protein", "Carb", "Vegetable"]
     
     var body: some View {
-        VStack {
-            HStack {
+        VStack {//structure of the app in a vertical stack
+            HStack {//vertical stack with the textbox and the add button
                 TextField("Enter ingredient", text: $newIngredient)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Picker("", selection: $selectedCategory) {

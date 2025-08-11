@@ -1,22 +1,17 @@
-//
-//  Techniques.swift
-//  FridgeFriend2
-//
-//  Created by Thom Alting von Geusau on 10/08/2025.
-//
+
 import SwiftData
 import SwiftUI
 
 struct TechniquesView: View {
     @Environment(\.modelContext) private var context
-    @Query(sort: \Technique.name) private var techniques: [Technique]
+    @Query(sort: \Technique.name) private var techniques: [Technique]//queries SwiftData
     
     @State private var newTechnique = ""
     @State private var selectedCategory = "Protein"
     
     let categories = ["Protein", "Carb", "Vegetable"]
     
-    var body: some View {
+    var body: some View {//same structure as contentview
         VStack {
             HStack {
                 TextField("Enter technique", text: $newTechnique)

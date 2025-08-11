@@ -1,4 +1,5 @@
 //Created for unittests
+//Helper class allows unit tests to run automatically in Xcode with command + U
 
 
 import Foundation

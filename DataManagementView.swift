@@ -1,24 +1,19 @@
-//
-//  DataManagementView.swift
-//  FridgeFriend2
-//
-//  Created by Thom Alting von Geusau on 10/08/2025.
-//
-
 import SwiftUI
 import SwiftData
 import UniformTypeIdentifiers
 
+//data management layer with the import and export button
+
 struct DataManagementView: View {
     @Environment(\.modelContext) private var context
-    @Query private var ingredients: [Ingredient]
-    @Query private var techniques: [Technique]
+    @Query private var ingredients: [Ingredient]//list of ingredients fetched from SwiftData
+    @Query private var techniques: [Technique]//list of techniques fetched from SwiftData
     
     @State private var showImporter = false
-    @State private var exportURL: IdentifiableURL?
+    @State private var exportURL: IdentifiableURL?//Needed to be an IdentifiableURL, made codable in wrapper
     @State private var showExporter = false
     
-    var body: some View {
+    var body: some View {//button definitions
         VStack(spacing: 20) {
             Button("Export to JSON") {
                 exportData()
@@ -49,7 +44,7 @@ struct DataManagementView: View {
         }
     }
     
-    // MARK: Export
+    // Export function
     func exportData() {
         let ingredientData = ingredients.map { IngredientData(name: $0.name, category: $0.category) }
         let techniqueData = techniques.map { TechniqueData(name: $0.name, category: $0.category) }
@@ -66,7 +61,7 @@ struct DataManagementView: View {
         }
     }
     
-    // MARK: Import
+    // Import function
     func handleImport(result: Result<[URL], Error>) {
         do {
             let urls = try result.get()
@@ -74,7 +69,7 @@ struct DataManagementView: View {
             let data = try Data(contentsOf: url)
             let imported = try JSONDecoder().decode(ExportData.self, from: data)
             
-            // Clear existing (optional — or merge instead)
+            // Clear existing data on import, can be removed if not desirable
             ingredients.forEach { context.delete($0) }
             techniques.forEach { context.delete($0) }
             
@@ -93,7 +88,7 @@ struct DataManagementView: View {
     }
 }
 
-// UIKit wrapper for ActivityViewController
+// UIKit wrapper for ActivityViewController applied like in the Apple documentation
 struct ActivityViewController: UIViewControllerRepresentable {
     var activityItems: [Any]
     

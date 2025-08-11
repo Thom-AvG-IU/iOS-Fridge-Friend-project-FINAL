@@ -1,6 +1,8 @@
 import SwiftData
 import SwiftUI
 
+
+//entry point of the program, used to set up tabview which serves as the navigator for the app
 @main
 struct MealPlannerApp: App {
     var body: some Scene {
