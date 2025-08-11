@@ -9,6 +9,7 @@ FridgeFriendHelper.swift
 Item.swift
 MealSuggestionView.swift
 TechniquesView.swift
+FridgeFriend2.entitlements
 
 Create folder FridgeFriend2Tests add following file:
 FridgeFriend2Tests.swift
