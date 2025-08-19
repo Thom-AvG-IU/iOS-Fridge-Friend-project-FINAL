@@ -1,22 +1,12 @@
 # iOS-Fridge-Friend-project-FINAL
 Final version of simple iOS application to inspire healthy and new meals
 
-Create folder FridgeFriend2 add following files:
-ContentView.swift
-DataManagementView.swift
-FridgeFriend2App.swift
-FridgeFriendHelper.swift
-Item.swift
-MealSuggestionView.swift
-TechniquesView.swift
-FridgeFriend2.entitlements
+The application allows for adding and removing ingredients and kitchen techniques.
+Add ingredients in the three categories Carb, Vegetable, and Protein.
+Add techniques in three categories Carb, Vegetable, and protein.
+Remove techniques and ingredients by swiping right on the ingredient or technique you would like to reomve.
 
-Create folder FridgeFriend2Tests add following file:
-FridgeFriend2Tests.swift
+Press the 'create meal idea' button to generate a random sequence of technique + ingredient per category.
 
-Create folder FridgeFriend2UITests
-FridgeFriend2UITests.swift
-FridgeFriend2UILaunchTests.swift
-
-Use default Assets or add unique app icon.
-With this setup default tests should run autonimously if target is set correctly.
+Import a json from another device, or directly from your text editor with the import feature.
+Share your fridge contents and techniques through JSON using the export button.
